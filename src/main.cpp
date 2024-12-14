@@ -3,7 +3,11 @@
 
 int main() {
     MyClass obj;
-    double result = obj.FuncA(0);
-    std::cout << "The result of FuncA(0) is: " << result << std::endl;
+    double x = 1.0;
+    int n = 3;
+    double result = obj.FuncA(x, n);
+    std::cout << "The result of FuncA(" << x << ") for the first 3 elements is: " << result << std::endl;
+
     return 0;
 }
+
