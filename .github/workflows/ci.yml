@@ -16,13 +16,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup compiler
-        uses: actions/setup-python@v2
-        with:
-          gcc-version: '11'
+      - name: Set up GCC
+        run: sudo apt-get install -y g++
 
       - name: Build with Makefile
         run: |
           make clean
           make
-
