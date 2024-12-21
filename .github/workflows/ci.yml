@@ -17,13 +17,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Встановлення компілятора
+  
     - name: Setup compiler
-      uses: actions/setup-gcc@v1
+      uses: actions/setup-cpp
       with:
-        gcc-version: '11' # або вкажіть потрібну версію GCC
-
-    # Побудова програми за допомогою Makefile
+        gcc-version: '11'
     - name: Build with Makefile
       run: |
         make clean
