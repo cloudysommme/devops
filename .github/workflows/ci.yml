@@ -1,4 +1,4 @@
-name: Build and Test
+name: C++ CI
 
 on:
   push:
@@ -13,19 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    # Завантаження коду вашого репозиторію
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up C++ environment
-        uses: actions/setup-cpp@v1
-        with:
-          compiler: g++
+    # Встановлення компілятора
+    - name: Setup compiler
+      uses: actions/setup-gcc@v1
+      with:
+        gcc-version: '11' # або вкажіть потрібну версію GCC
 
-      - name: Build project
-        run: |
-          make
-          ls -la
-
-      - name: Test binary
-        run: ./main
-
+    # Побудова програми за допомогою Makefile
+    - name: Build with Makefile
+      run: |
+        make clean
+        make
