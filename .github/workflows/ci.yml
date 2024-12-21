@@ -13,16 +13,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Завантаження коду вашого репозиторію
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-  
-    - name: Setup compiler
-      uses: actions/setup-cpp
-      with:
-        gcc-version: '11'
-    - name: Build with Makefile
-      run: |
-        make clean
-        make
+      - name: Setup compiler
+        uses: actions/setup-python@v2
+        with:
+          gcc-version: '11'
+
+      - name: Build with Makefile
+        run: |
+          make clean
+          make
+
